@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: student-ws
+  datasource:
+    url: jdbc:postgresql://172.20.157.189:5432/playground?currentSchema=student_management
+    username: admin
+    password: admin
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui
+    version:
+
+server:
+  port: 5000
+
+management:
+  server:
+    port: 5001
+
+demo:
+  restclient:
+    university-ws: http://10.0.2.218:5000/university
+  api:
+    university-ws:
+      get-university-by-id: /{id}

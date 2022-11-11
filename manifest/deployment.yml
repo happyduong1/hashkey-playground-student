@@ -1,0 +1,25 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  namespace: student
+  name: student-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: student-api
+  template:
+    metadata:
+      labels:
+        app: student-api
+    spec:
+      containers:
+        - name: student
+          image: docker.io/tuminh14/student-service:latest
+          ports:
+            - containerPort: 5000
+              name: http
+              protocol: TCP
+            # - containerPort: 5002
+            #   name: grpc
+            #   protocol: TCP
